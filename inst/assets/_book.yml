@@ -16,7 +16,7 @@ book:
           - text: Source Code
             url:  https://github.com/vjcitn/YESCDSbook/
           - text: Browse version `devel`
-            url:  https://vjcitn.github.io/YESCDSbook/devel/
+            url:  https://vjcitn.github.io/YESCDSbook/docs/devel/
     style: "docked"
     background: "light"
     collapse-level: 5
