@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>YESCDSbook - 2&nbsp; Counting cancers</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../pages/mapping-cancer-rates.html" rel="next">
+<link href="../pages/preamble.html" rel="prev">
+<link href="../assets/favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><script src="../site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script><link href="../site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="../site_libs/datatables-binding-0.30/datatables.js"></script><script src="../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><link href="../site_libs/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="../site_libs/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="../site_libs/dt-core-1.13.4/js/jquery.dataTables.min.js"></script><link href="../site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="../site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+</head>
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/counting-cancers.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Counting cancers</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">YESCDSbook</a> 
+        <div class="sidebar-tools-main">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-git"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+<li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/vjcitn/YESCDSbook/">
+            Source Code
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://vjcitn.github.io/YESCDSbook/devel/">
+            Browse version `devel`
+            </a>
+          </li>
+      </ul>
+</div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/preamble.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">YESCDS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/counting-cancers.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Counting cancers</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/mapping-cancer-rates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Mapping cancer rates</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/genomics-of-cancer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Genomics of cancer</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/clinical-trials-finding-new-treatments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Clinical trials: finding new treatments</span></span></a>
+  </div>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li>
+<a href="#cancer-experiences-a-personal-view" id="toc-cancer-experiences-a-personal-view" class="nav-link active" data-scroll-target="#cancer-experiences-a-personal-view"><span class="header-section-number">2.1</span> Cancer experiences: a personal view</a>
+  <ul class="collapse">
+<li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions"><span class="header-section-number">2.1.1</span> Questions</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#cancer-rates-and-public-health" id="toc-cancer-rates-and-public-health" class="nav-link" data-scroll-target="#cancer-rates-and-public-health"><span class="header-section-number">2.2</span> Cancer rates and public health</a>
+  <ul class="collapse">
+<li><a href="#collecting-cancer-data" id="toc-collecting-cancer-data" class="nav-link" data-scroll-target="#collecting-cancer-data"><span class="header-section-number">2.2.1</span> Collecting cancer data</a></li>
+  <li><a href="#body-sites-with-relatively-high-cancer-incidence" id="toc-body-sites-with-relatively-high-cancer-incidence" class="nav-link" data-scroll-target="#body-sites-with-relatively-high-cancer-incidence"><span class="header-section-number">2.2.2</span> Body sites with relatively high cancer incidence</a></li>
+  <li><a href="#new-diagnoses-and-deaths-over-time" id="toc-new-diagnoses-and-deaths-over-time" class="nav-link" data-scroll-target="#new-diagnoses-and-deaths-over-time"><span class="header-section-number">2.2.3</span> New diagnoses, and deaths, over time</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">2.2.4</span> Exercises</a></li>
+  </ul>
+</li>
+  <li><a href="#a-view-of-pancreatic-cancer-incidence" id="toc-a-view-of-pancreatic-cancer-incidence" class="nav-link" data-scroll-target="#a-view-of-pancreatic-cancer-incidence"><span class="header-section-number">2.3</span> A view of pancreatic cancer incidence</a></li>
+  <li>
+<a href="#a-view-of-colorectal-cancer-incidence" id="toc-a-view-of-colorectal-cancer-incidence" class="nav-link" data-scroll-target="#a-view-of-colorectal-cancer-incidence"><span class="header-section-number">2.4</span> A view of colorectal cancer incidence</a>
+  <ul class="collapse">
+<li><a href="#exercises-1" id="toc-exercises-1" class="nav-link" data-scroll-target="#exercises-1"><span class="header-section-number">2.4.1</span> Exercises</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#monitoring-of-cancer-by-public-health-institutions" id="toc-monitoring-of-cancer-by-public-health-institutions" class="nav-link" data-scroll-target="#monitoring-of-cancer-by-public-health-institutions"><span class="header-section-number">3</span> Monitoring of cancer by public health institutions</a>
+  <ul class="collapse">
+<li>
+<a href="#county-level-variation-in-cancer-rates" id="toc-county-level-variation-in-cancer-rates" class="nav-link" data-scroll-target="#county-level-variation-in-cancer-rates"><span class="header-section-number">3.1</span> County-level variation in cancer rates</a>
+  <ul class="collapse">
+<li><a href="#exercises-2" id="toc-exercises-2" class="nav-link" data-scroll-target="#exercises-2"><span class="header-section-number">3.1.1</span> Exercises</a></li>
+  </ul>
+</li>
+  </ul>
+</li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Counting cancers</span>
+</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header><section id="cancer-experiences-a-personal-view" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="cancer-experiences-a-personal-view">
+<span class="header-section-number">2.1</span> Cancer experiences: a personal view</h2>
+<p>In 60 years of life I have been cancer-free, but many family members and friends have had to address the disease.</p>
+<p>I prepared a table with some information on contacts whose cancer experiences I know of:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">datatable</span><span class="op">(</span><span class="va">vjc_cancer_net</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-5898c3a943ddf5c2ac39" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-5898c3a943ddf5c2ac39">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"],["Grandfather","Step-Grand","in-law","in-law","friend","friend","Grt Uncle","Grt Uncle","Colleague","Colleague","Friend","Neighbor","friend","friend","friend"],["Prostate","Lung","Breast","Pancreas","Lymphoma","Breast","Brain","Liver","Prostate","Melanoma","Ovarian","Mesothelioma","Oligodendroglioma","Glioblastoma","Colorectal"],["80s","70s","80s","60s","30s","40s","60s","60s","50s","50s","50s","60s","50s","50s","60s"],["yes","yes","no","no","no","no","yes","yes","no","no","no","yes","no","yes","no"],["yes","yes","yes","yes","yes","yes","yes","yes","no","no","no","yes ","?","?","yes"],["no","?","no","no","no","no","yes","yes","?","no","no","yes","no","no","no"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Connection<\/th>\n      <th>Type<\/th>\n      <th>Age<\/th>\n      <th>Smoker<\/th>\n      <th>Lethal<\/th>\n      <th>Occupational<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Note that the table can be sorted and searched. You can also alter the number of records presented.</p>
+<section id="questions" class="level3" data-number="2.1.1"><h3 data-number="2.1.1" class="anchored" data-anchor-id="questions">
+<span class="header-section-number">2.1.1</span> Questions</h3>
+<p>A.1.1. Why would a person make a table like this?</p>
+<p>A.1.2. How could this table be made more informative?</p>
+</section></section><section id="cancer-rates-and-public-health" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="cancer-rates-and-public-health">
+<span class="header-section-number">2.2</span> Cancer rates and public health</h2>
+<p>Motivations for studying cancer at the <em>population level</em> are detailed on a <a href="https://www.cancer.gov/research/areas/public-health">National Cancer Institute web page.</a></p>
+<p>Briefly, cancers contribute to</p>
+<ul>
+<li>years of life lost</li>
+<li>loss of quality of life for patients and families</li>
+<li>lost productivity</li>
+</ul>
+<p>Furthermore, as the population ages, the effects of cancer will be more pronounced as time goes on.</p>
+<p><em>Although cancer affects individual patients and their families in different ways, studying its impact on large populations can provide important information that influences practices, policies, and programs that directly affect the health of millions of people in the United States each year.</em> – from the NCI web page</p>
+<p>This idea of “studying [cancer’s] impact on large populations” brings us immediately to data science and statistics.</p>
+<p>Two terms of epidemiology will be of use to us</p>
+<ul>
+<li>
+<em>prevalence</em>: the proportion of the population currently affected by a disease</li>
+<li>
+<em>incidence</em>: the proportion of the population, in a given time interval, that was disease-free prior to the interval but developed the disease within the interval</li>
+</ul>
+<p>Prevalence expresses the current burden of disease within a population.</p>
+<p>Incidence expresses the rapidity with which a disease grows in a population.</p>
+<p>For a more detailed discussion of these terms, check <a href="https://www.cdc.gov/csels/dsepd/ss1978/lesson3/section2.html#:~:text=Incidence%20refers%20to%20the%20occurrence,cases%20per%20unit%20of%20population.">this CDC site</a>.</p>
+<p>An excellent resource on rate estimation and interpretation is the <a href="https://www.ncbi.nlm.nih.gov/books/NBK550212/pdf/Bookshelf_NBK550212.pdf">online book on cancer screening</a> by Pamela Marcus, hosted at NCI.</p>
+<section id="collecting-cancer-data" class="level3" data-number="2.2.1"><h3 data-number="2.2.1" class="anchored" data-anchor-id="collecting-cancer-data">
+<span class="header-section-number">2.2.1</span> Collecting cancer data</h3>
+<p>The role of statistics in our lives has intensified with the COVID-19 pandemic.</p>
+<p>Policymakers have proposed that personal protective behaviors and legal obligations to mask or avoid traveling can change depending on the “infection rates” in localities.</p>
+<p>Cancer Registries are systems managed at the state level that collect information on cancers as they are identified by health care providers.</p>
+<p>“SEER” stands for Surveillance, Epidemiology and End Results. It is a program developed at the National Institutes of Health (NIH) National Cancer Institute (NCI). Data are collected at 17 regional centers.</p>
+<p>The SEER web site, offers various facets of cancer data to investigate.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="https://github.com/vjcitn/YESCDS/blob/main/man/figures/SEERlist.jpg?raw=true" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">SEERlist</figcaption></figure>
+</div>
+</section><section id="body-sites-with-relatively-high-cancer-incidence" class="level3" data-number="2.2.2"><h3 data-number="2.2.2" class="anchored" data-anchor-id="body-sites-with-relatively-high-cancer-incidence">
+<span class="header-section-number">2.2.2</span> Body sites with relatively high cancer incidence</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="https://github.com/vjcitn/YESCDS/blob/main/man/figures/piecharts.jpg?raw=true" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">SEER 2021 pie charts</figcaption></figure>
+</div>
+</section><section id="new-diagnoses-and-deaths-over-time" class="level3" data-number="2.2.3"><h3 data-number="2.2.3" class="anchored" data-anchor-id="new-diagnoses-and-deaths-over-time">
+<span class="header-section-number">2.2.3</span> New diagnoses, and deaths, over time</h3>
+<p>A very broad overview of cancer’s impact on Americans over the past 20 years:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="https://github.com/vjcitn/YESCDS/blob/main/man/figures/rateOverview.jpg?raw=true" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">SEER overview, 2021</figcaption></figure>
+</div>
+</section><section id="exercises" class="level3" data-number="2.2.4"><h3 data-number="2.2.4" class="anchored" data-anchor-id="exercises">
+<span class="header-section-number">2.2.4</span> Exercises</h3>
+<p>A.2.1 The display just above asserts that over 1.8 million Americans will present with a new cancer diagnosis in 2021. Re-express this prediction as a “rate per 100,000 persons”.</p>
+<p>A.2.2 True or False: Of cancers newly identified in US citizens in 2021, more than 8% arise in the pancreas.</p>
+</section></section><section id="a-view-of-pancreatic-cancer-incidence" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="a-view-of-pancreatic-cancer-incidence">
+<span class="header-section-number">2.3</span> A view of pancreatic cancer incidence</h2>
+<p>We can “drill down” on specific cancer types using the drop-down menu at seer.cancer.gov. For cancer of the pancreas we have:</p>
+<p>[SEER pancreas, 2021](https://github.com/vjcitn/YESCDS/blob/main/man/figures/pancreas.jpg?raw=true</p>
+</section><section id="a-view-of-colorectal-cancer-incidence" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="a-view-of-colorectal-cancer-incidence">
+<span class="header-section-number">2.4</span> A view of colorectal cancer incidence</h2>
+<p>For cancer of the colon or rectum we have:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="https://github.com/vjcitn/YESCDS/blob/main/man/figures/colon.jpg?raw=true" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">SEER colon and rectum, 2021</figcaption></figure>
+</div>
+<section id="exercises-1" class="level3" data-number="2.4.1"><h3 data-number="2.4.1" class="anchored" data-anchor-id="exercises-1">
+<span class="header-section-number">2.4.1</span> Exercises</h3>
+<p>A.2.3 Which of the following describes observations on pancreatic cancer between 1992 and 2019?</p>
+<ul>
+<li>the death rate per 100000 population increased by two,</li>
+<li>the rate of new pancreatic cancers per 100000 population increased by two,</li>
+<li>the rate of new pancreatic cancers per 100000 population remained stable.</li>
+</ul>
+<p>A.2.4 True or false: The death rate, and the incidence rate, for cancers of colon and rectum were approximately halved in the interval between 1992 and 2019.</p>
+<p>```</p>
+</section></section><section id="monitoring-of-cancer-by-public-health-institutions" class="level1" data-number="3"><h1 data-number="3">
+<span class="header-section-number">3</span> Monitoring of cancer by public health institutions</h1>
+<section id="county-level-variation-in-cancer-rates" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="county-level-variation-in-cancer-rates">
+<span class="header-section-number">3.1</span> County-level variation in cancer rates</h2>
+<p>We focus on colorectal cancer:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="https://github.com/vjcitn/YESCDS/blob/main/man/figures/colon8GroupIncidence.jpg?raw=true" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">NIH/CDC State Cancer Profiles</figcaption></figure>
+</div>
+<section id="exercises-2" class="level3" data-number="3.1.1"><h3 data-number="3.1.1" class="anchored" data-anchor-id="exercises-2">
+<span class="header-section-number">3.1.1</span> Exercises</h3>
+<p>A.3.1 Use <a href="https://statecancerprofiles.cancer.gov/map/map.noimage.php">State Cancer Profiles</a> to produce a map of colorectal cancer incidence for Massachusetts. You will have to make selections in the web interface. Choose the Quantiles interval type with 8 intervals. Obtain the map for both sexes, all ages. What is the county with lowest incidence of colorectal cancer?</p>
+<p>A.3.2 True or false: In Massachusetts, the age-adjusted incidence of colorectal cancer for individuals greater than 65 years of age is approximately ten times that of individuals less than 50 years of age.</p>
+<p>A.3.3 Return to cancers of colon and rectum. Form a map for Area “United States”, Area Type “By State”. Limit to age less than 50. Which state has the highest incidence of colorectal cancer in this age group?</p>
+<p>A.3.4 Data presented by the Environmental Protection Agency can be seen at <a href="https://cfpub.epa.gov/roe/indicator.cfm?i=73#5">Exhibit 5 of the current Report on the Environment</a>. What is the estimated incidence rate for colorectal cancer for females in 2017 (end of the curve)? How does this compare to the “State Cancer Profile” statistic for females of all ages?</p>
+<p>A.3.5 Using the EPA chart in Exhibit 5, which type of cancer in females shows a steady decrease in incidence from 2000 to 2017?</p>
+
+
+</section></section></section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../pages/preamble.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">YESCDS</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../pages/mapping-cancer-rates.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Mapping cancer rates</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">This book was built with <a href="https://github.com/js2264/BiocBook/">BiocBook</a> with <span class="emoji" data-emoji="heart">❤️</span></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+</body></html>

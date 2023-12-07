@@ -2,6 +2,11 @@ book:
   title: "YESCDSbook"
   chapters:
     - index.qmd
+    - pages/preamble.qmd
+    - pages/counting-cancers.qmd
+    - pages/mapping-cancer-rates.qmd
+    - pages/genomics-of-cancer.qmd
+    - pages/clinical-trials-finding-new-treatments.qmd
   cover-image: assets/cover.png
   favicon: assets/favicon.png
   sidebar: 

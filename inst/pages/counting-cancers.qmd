@@ -1,0 +1,174 @@
+# Counting cancers
+
+
+```{r setup3,echo=FALSE,results="hide"}
+suppressMessages({
+ suppressPackageStartupMessages({
+  library(YESCDS)
+  library(DT)
+  data(vjc_cancer_net)
+  })
+ })
+```
+
+## Cancer experiences: a personal view
+
+In 60 years of life I have been cancer-free, but many
+family members and friends have had to address
+the disease.
+
+I prepared a table with some information on contacts
+whose cancer experiences I know of:
+
+```{r lktab}
+datatable(vjc_cancer_net)
+```
+
+Note that the table can be sorted and searched.  You can also
+alter the number of records presented.
+
+### Questions
+
+A.1.1. Why would a person make a table like this?
+
+A.1.2. How could this table be made more informative?
+
+
+
+## Cancer rates and public health
+
+Motivations for studying cancer at the *population level* are detailed
+on a [National Cancer Institute web page.](https://www.cancer.gov/research/areas/public-health)
+
+Briefly, cancers contribute to
+
+- years of life lost
+- loss of quality of life for patients and families
+- lost productivity
+
+Furthermore, as the population ages, the effects of cancer will be more pronounced as time goes on.
+
+
+*Although cancer affects individual patients and their families in different ways, studying 
+its impact on large populations can provide important information that influences 
+practices, policies, and programs that directly affect the health of millions of people in 
+the United States each year.* -- from the NCI web page
+
+This idea of "studying [cancer's] impact on large populations" brings us immediately to data
+science and statistics.
+
+Two terms of epidemiology will be of use to us
+
+- *prevalence*: the proportion of the population currently affected by a disease
+- *incidence*: the proportion of the population, in a given time interval, that
+was disease-free prior to the interval but developed the disease within the interval
+
+Prevalence expresses the current burden of disease within a population.
+
+Incidence expresses the rapidity with which a disease grows in a population.
+
+For a more detailed discussion of these terms, check [this CDC site](https://www.cdc.gov/csels/dsepd/ss1978/lesson3/section2.html#:~:text=Incidence%20refers%20to%20the%20occurrence,cases%20per%20unit%20of%20population.).
+
+An excellent resource on rate estimation and interpretation is the [online book on
+cancer screening](https://www.ncbi.nlm.nih.gov/books/NBK550212/pdf/Bookshelf_NBK550212.pdf) by Pamela Marcus, hosted at NCI.
+
+
+### Collecting cancer data
+
+The role of statistics in our lives has
+intensified with the COVID-19 pandemic.
+
+Policymakers have proposed that personal protective
+behaviors and legal obligations to mask
+or avoid traveling can change depending on the
+"infection rates" in localities.
+
+Cancer Registries are systems managed at the
+state level that collect information on cancers
+as they are identified by health care providers.
+
+"SEER" stands for Surveillance, Epidemiology and End Results.
+It is a program developed at the National Institutes of Health (NIH)
+National Cancer Institute (NCI).  Data are collected at 17 regional centers.
+
+The SEER web site, offers various facets of cancer data to investigate.
+
+
+![SEERlist](https://github.com/vjcitn/YESCDS/blob/main/man/figures/SEERlist.jpg?raw=true)
+
+### Body sites with relatively high cancer incidence
+
+![SEER 2021 pie charts](https://github.com/vjcitn/YESCDS/blob/main/man/figures/piecharts.jpg?raw=true)
+
+### New diagnoses, and deaths, over time
+
+A very broad overview of cancer's impact on Americans over the past 20 years:
+
+![SEER overview, 2021](https://github.com/vjcitn/YESCDS/blob/main/man/figures/rateOverview.jpg?raw=true)
+
+### Exercises
+
+A.2.1 The display just above asserts that over 1.8 million Americans will
+present with a new cancer diagnosis in 2021.  Re-express this prediction as
+a "rate per 100,000 persons".
+
+A.2.2 True or False: Of cancers newly identified in US citizens in 2021, more than 8\%
+arise in the pancreas.
+
+## A view of pancreatic cancer incidence
+
+We can "drill down" on specific cancer types using the drop-down menu
+at seer.cancer.gov.  For cancer of the pancreas we have:
+
+![SEER pancreas, 2021](https://github.com/vjcitn/YESCDS/blob/main/man/figures/pancreas.jpg?raw=true
+
+## A view of colorectal cancer incidence
+
+For cancer of the colon or rectum we have:
+
+![SEER colon and rectum, 2021](https://github.com/vjcitn/YESCDS/blob/main/man/figures/colon.jpg?raw=true)
+
+### Exercises
+
+A.2.3 Which of the following describes observations on pancreatic cancer between
+1992 and 2019?  
+
+-  the death rate per 100000 population increased by two,
+-  the rate of new pancreatic cancers per 100000 population increased by two,
+-  the rate of new pancreatic cancers per 100000 population remained stable.
+
+A.2.4 True or false: The death rate, and the incidence rate, for cancers of colon
+and rectum were approximately halved in the interval between 1992 and 2019.
+
+```
+
+
+# Monitoring of cancer by public health institutions
+
+## County-level variation in cancer rates
+
+We focus on colorectal cancer:
+
+![NIH/CDC State Cancer Profiles](https://github.com/vjcitn/YESCDS/blob/main/man/figures/colon8GroupIncidence.jpg?raw=true)
+
+### Exercises
+
+A.3.1  Use [State Cancer Profiles](https://statecancerprofiles.cancer.gov/map/map.noimage.php) to produce
+a map of colorectal cancer incidence for Massachusetts.  You will have to
+make selections in the web interface.  Choose the Quantiles interval type with 8 intervals.
+Obtain the map for both sexes, all ages.  What is the county with lowest incidence of colorectal cancer?
+
+A.3.2 True or false: In Massachusetts, the age-adjusted incidence of colorectal cancer for individuals
+greater than 65 years of age is approximately ten times that of individuals less than 50 years of age.
+
+A.3.3 Return to cancers of colon and rectum.  Form a map for Area "United States", Area Type "By State".
+Limit to age less than 50.  Which state has the highest incidence of colorectal cancer in this age group?
+
+A.3.4 Data presented by the Environmental Protection Agency can be seen
+at [Exhibit 5 of the current Report on the Environment](https://cfpub.epa.gov/roe/indicator.cfm?i=73#5).
+What is the estimated incidence rate for colorectal cancer for females in 2017 (end of the
+curve)?  How does this compare to the "State Cancer Profile" statistic for females of all ages?
+
+A.3.5 Using the EPA chart in Exhibit 5, which type of cancer in females shows a steady decrease
+in incidence from 2000 to 2017?
+
