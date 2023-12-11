@@ -6,7 +6,7 @@ Description:
 	YESCDS is an R package with data and software tools for the exploration
 	of cancer data science.  This BiocBook formats the material and
 	addresses maintenance via github actions.
-Version: 0.98.2
+Version: 0.98.3
 Date: `r date()`
 Authors@R: 
     person(
@@ -34,6 +34,8 @@ Suggests:
     glue,
     sessioninfo,
     knitr 
+Remotes: 
+    github::vjcitn/YESCDS
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 BiocType: Book
