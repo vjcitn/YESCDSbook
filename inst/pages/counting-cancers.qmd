@@ -143,9 +143,9 @@ and rectum were approximately halved in the interval between 1992 and 2019.
 ```
 
 
-# Monitoring of cancer by public health institutions
+## Monitoring of cancer by public health institutions
 
-## County-level variation in cancer rates
+### County-level variation in cancer rates
 
 We focus on colorectal cancer:
 

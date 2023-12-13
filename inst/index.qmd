@@ -29,7 +29,7 @@ This is the landing page of the `BiocBook` entitled "Cancer data science concept
 
 This book introduces the reader to the concepts mapped below:
 
-[coggle](https://github.com/vjcitn/YESCDS/blob/main/Cancer_Data_Science_Topics.png?raw=true)
+![coggle](https://github.com/vjcitn/YESCDS/blob/main/Cancer_Data_Science_Topics.png?raw=true)
 
 The [YESCDS R package](https://github.com/vjcitn/YESCDS) includes
 data structures and functions used in this book.

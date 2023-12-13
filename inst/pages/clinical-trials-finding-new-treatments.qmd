@@ -46,7 +46,7 @@ and data scientists
         - ideally one integrates all available scientific information about the proposed alternative,
 requiring extensive literature search and acquisition of public data
 
-# Questions to answer in designing a clinical trial  [(Article)](https://www.cancer.org/treatment/treatments-and-side-effects/clinical-trials/what-you-need-to-know/phases-of-clinical-trials.html)
+## Questions to answer in designing a clinical trial  [(Article)](https://www.cancer.org/treatment/treatments-and-side-effects/clinical-trials/what-you-need-to-know/phases-of-clinical-trials.html)
 
 D.1.1 What is the current standard of care?  
 
@@ -124,7 +124,7 @@ Distinguished in [AMA ethics, 2015](https://journalofethics.ama-assn.org/article
 
 
 
-# Blinding and randomization to reduce bias
+## Blinding and randomization to reduce bias
 
 The concept of the double-blind clinical experiment is well-established
 
@@ -141,7 +141,7 @@ assignments as needed.
 The role of blinding in experimentation is reviewed in a [Nature commentary](https://www.nature.com/articles/526187a), and the [Wikipedia article](https://en.wikipedia.org/wiki/Blinded_experiment) 
 has many useful references.
 
-## Randomization to reduce bias
+### Randomization to reduce bias
 
 Once blinding has been accomplished it may seem unnecessary to take further
 steps to eliminate bias in the evaluation of an experimental comparison.

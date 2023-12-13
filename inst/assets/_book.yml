@@ -1,5 +1,5 @@
 book:
-  title: "YESCDSbook"
+  title: "Cancer data science concepts for undergraduates"
   chapters:
     - index.qmd
     - pages/preamble.qmd
