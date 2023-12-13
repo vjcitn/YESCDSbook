@@ -1,7 +1,4 @@
-# Clinical trials: finding new treatments
-
-
-## Clinical trials concepts
+# Clinical trials for cancer treatments
 
 
 ```{r setup,echo=FALSE,results="hide"}
@@ -21,7 +18,6 @@ littab = woncan |> select(MSA, `Cancer Sites`, Age.Adjusted.Rate) |> as.data.fra
  })
 ```
 
-## Clinical trials for cancer treatments
 
 - Despite massive investments in cancer research and treatment development,
 cancer remains a leading cause of death

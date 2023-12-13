@@ -1,7 +1,7 @@
 # Mapping cancer rates
 
 
-## Cancer across the globe"
+## Cancer across the globe
 
 ```{r setup5,echo=FALSE,results="hide"}
 suppressMessages({

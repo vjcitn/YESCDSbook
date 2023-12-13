@@ -25,9 +25,15 @@ intro <- tryCatch(
 
 # Welcome {-}
 
-This is the landing page of the `BiocBook` entitled *...*.  
+This is the landing page of the `BiocBook` entitled "Cancer data science concepts for undergraduates"
 
-This book introduces the reader to *...*.  
+This book introduces the reader to the concepts mapped below:
+
+[coggle](https://github.com/vjcitn/YESCDS/blob/main/Cancer_Data_Science_Topics.png?raw=true)
+
+The [YESCDS R package](https://github.com/vjcitn/YESCDS) includes
+data structures and functions used in this book.
+
 
 # Docker image {-}
 
@@ -77,6 +83,28 @@ docker run -it ghcr.io/vjcitn/yescdsbook:devel bash
 micromamba activate BiocBook
 ``` 
 -->
+
+
+# Acknowledgments {-}
+
+Contributors: 
+
+- Alexandru Mahmoud, Channing Division of Network Medicine, Mass General Brigham
+- Brittany Michel, Dana-Farber Cancer Institute
+- Latrice Landry, Perelman School of Medicine, University of Pennsylvania
+- Karen Burns White, Dana-Farber Cancer Institute
+- Vincent Carey, Channing Division of Network Medicine, Mass General Brigham
+
+This project is supported in part by
+
+- NSF ACCESS Allocation BIR190004 "Engineering and disseminating a software and analysis ecosystem for genomic data science"
+
+- Chan-Zuckerberg Initiative EOSS Diversity & Inclusiveness EOSS-DI-0000000033 "Bioconductor: Sustaining a Worldwide Community of Genome Data Scientists"
+
+- National Cancer Institute 5U24CA180996-08 "Cancer Genomics: Integrative and Scalable Solutions in R/Bioconductor"
+
+- National Human Genome Research Institute 2U24HG004059-17 "Bioconductor: An Open-Source, Open-Development Computing Resource for Genomics"
+
 
 # Session info {-}
 

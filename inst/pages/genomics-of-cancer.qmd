@@ -1,6 +1,6 @@
 # Genomics of cancer
 
-## Cancer in our bodies: Overall view"
+## Cancer in our bodies: Overall view
 
 ```{r setup4,echo=FALSE,results="hide"}
 suppressWarnings({

@@ -1,12 +1,12 @@
 Package: YESCDSbook
-Title: Demonstration monograph: cancer data science concepts for undergraduates
+Title: Cancer data science concepts for undergraduates
 Description: 
 	YES4CURE is a Dana-Farber Cancer Institute program for high school
 	and undergraduate students, introducing research methods in cancer biology.
 	YESCDS is an R package with data and software tools for the exploration
 	of cancer data science.  This BiocBook formats the material and
 	addresses maintenance via github actions.
-Version: 0.98.3
+Version: 0.98.4
 Date: `r date()`
 Authors@R: 
     person(

@@ -1,24 +1,39 @@
-# YESCDS
+# Preamble {-}
 
-Cancer Data Science resources for DFCI YES for CURE -- intended for use by secondary and undergraduate students
+Cancer data science is a vast field with considerable history
+and impact.  Materials assembled in this book aim to give
+a flavor of the questions entertained and of the methods
+employed by researchers in cancer epidemiology, biology,
+and treatment.
 
-![Map](https://github.com/vjcitn/YESCDS/blob/main/Cancer_Data_Science_Topics.png?raw=true)
+Fundamental questions arise whenever we contemplate sources
+of cancer risk and public health responses to cancer.
 
-Contributors: 
+- How should we count cancers and communicate this information
+to the public and to decisionmakers?
 
-- Alexandru Mahmoud, Channing Division of Network Medicine, Mass General Brigham
-- Brittany Michel, Dana-Farber Cancer Institute
-- Latrice Landry, Perelman School of Medicine, University of Pennsylvania
-- Karen Burns White, Dana-Farber Cancer Institute
-- Vincent Carey, Channing Division of Network Medicine, Mass General Brigham
+- What features of environment and lifestyle affect cancer
+risk?  Are variations in geographic distribution of cancer
+types related to pollution or regionally variable lifestyle patterns?
 
-This project supported in part by
+- How does progress in methods of cell biology help us to
+pinpoint molecular processes underlying cancer and its
+spread?
 
-- NSF ACCESS Allocation BIR190004 "Engineering and disseminating a software and analysis ecosystem for genomic data science"
+- What kinds of experiments are needed to create and improve
+effective treatments for cancer?
 
-- Chan-Zuckerberg Initiative EOSS Diversity & Inclusiveness EOSS-DI-0000000033 "Bioconductor: Sustaining a Worldwide Community of Genome Data Scientists"
+In this book we take advantage of the R language, the
+CRAN repository of R packages for general data science,
+and the Bioconductor project that provides many
+R packages and data resources for genomic data science.
+Relevant texts are:
 
-- National Cancer Institute 5U24CA180996-08 "Cancer Genomics: Integrative and Scalable Solutions in R/Bioconductor"
+- Peter Dalgaard, [Introductory Statistics with R](https://link.springer.com/book/10.1007/978-0-387-79054-1?source=shoppingads&locale=en-us&gad_source=1&gclid=CjwKCAiApuCrBhAuEiwA8VJ6JkGxd-Gx6UY2OFLFdl9MGNUqbI_paBjd8yQlsL-Bz_-DC_0NAcyWkBoCgoUQAvD_BwE)
 
-- National Human Genome Research Institute 2U24HG004059-17 "Bioconductor: An Open-Source, Open-Development Computing Resource for Genomics"
+- Gareth James, Daniela Witten et al., [An Introduction to Statistical
+Learning](https://www.amazon.com/Introduction-Statistical-Learning-Applications-Statistics/dp/1071614207/ref=asc_df_1071614207/?tag=hyprod-20&linkCode=df0&hvadid=598352683676&hvpos=&hvnetw=g&hvrand=11192872929028310934&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1018127&hvtargid=pla-1688386822033&psc=1&mcid=6d5ef8f5fe563f36a1e5b961f3b3f3a0&gclid=CjwKCAiApuCrBhAuEiwA8VJ6JlYZK7BBmtAM1pJhSMfKMHfkGnKe-LBII1pOHoh5ueQmp7ws-g4ESRoC5AAQAvD_BwE)
 
+The [Bioconductor website](https://bioconductor.org) and
+[support site](https://support.bioconductor.org) are also
+potentially helpful.
