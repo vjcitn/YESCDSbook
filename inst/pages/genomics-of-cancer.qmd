@@ -163,3 +163,8 @@ of subtypes of brain cancer types.  Many of the nodes on the right
 can be expanded to reveal additional subtypes.
 
 ![Oncotree snippet](https://github.com/vjcitn/YESCDS/blob/main/man/figures/oncotreeSNIP.jpg?raw=true)
+
+## Ancestry considerations in cancer biology
+
+See the [RAIDS package](https://bioconductor.org/packages/RAIDS).
+
